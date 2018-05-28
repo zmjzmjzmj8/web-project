@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 /**
- * 所有control的切面，记日志，记录返回
+ * 所有control的切面，记日志，记录返回，参数校验
  * @author zmj
  */
 @Aspect
@@ -56,7 +56,7 @@ public class ControllerAspect  {
         //参数
         logger.info("args={}", Arrays.toString(joinPoint.getArgs()));
 
-        //校验参数
+        //校验参数 配合@Valid注解
         Arrays.stream(joinPoint.getArgs())
                 .filter(arg->arg instanceof BeanPropertyBindingResult)
                 .findFirst()
