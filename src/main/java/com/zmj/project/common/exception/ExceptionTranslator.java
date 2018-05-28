@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 public class ExceptionTranslator {
+    //错误页面
     public static final String DEFAULT_ERROR_VIEW = "error.jsp";
     private static final Logger logger  = LoggerFactory.getLogger(ExceptionTranslator.class);
 
@@ -29,8 +30,10 @@ public class ExceptionTranslator {
     @ExceptionHandler(value = Exception.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
         ModelAndView mav = new ModelAndView(DEFAULT_ERROR_VIEW);
+        //不在页面上显示
         mav.addObject("exception", e);
         mav.addObject("url", req.getRequestURL());
+        //记录日志
         logger.warn("exception = {} url= {} ",e,req.getRequestURL());
         return mav;
     }

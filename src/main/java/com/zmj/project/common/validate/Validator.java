@@ -16,6 +16,11 @@ public interface Validator {
      */
     void validate(Object obj) throws ValidationException;
 
+    /**
+     * 进行校验默认方法
+     * @param obj
+     * @throws ValidationException
+     */
     default void doValidate(Object obj) throws ValidationException{
         try {
             validate(obj);

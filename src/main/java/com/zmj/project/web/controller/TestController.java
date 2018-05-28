@@ -69,6 +69,7 @@ public class TestController {
         Object o =null;
         ValidatorChain validatorChain = new ValidatorBuilder()
                 .addValidator(obj ->Assert.notNull(o,"o不能为空"))
+                .addValidator(obj -> obj.toString())
                 .build();
         validatorChain.doValidate(o);
         return null;
