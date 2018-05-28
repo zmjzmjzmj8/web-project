@@ -1,11 +1,8 @@
-package com.zmj.common.validate;
+package com.zmj.project.web.validator;
 
-import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import com.zmj.project.common.validate.Validator;
+import com.zmj.project.common.validate.exception.ValidationException;
+import org.springframework.util.Assert;
 
 /**
  * code is far away from bug with the animal protecting
@@ -31,23 +28,14 @@ import java.util.Optional;
  * @description :
  * ---------------------------------
  */
-@NoArgsConstructor
-public class ValidatorBuilder {
-    private List<Validator> validators;
-
-    public ValidatorBuilder addValidator(Validator... validator){
-        Optional<List<Validator>> vcp = Optional.ofNullable( validators);
-        validators = vcp.orElse(new ArrayList<>());
-        Collections.addAll(validators, validator);
-        return this;
-    }
-
-    public ValidatorChain build(){
+public class DemoValidator implements Validator{
+    @Override
+    public void validate(Object obj) throws ValidationException {
         try {
-            return new ValidatorChain(validators);
-        }finally {
-            validators=null;
+            Assert.notNull(obj,"不能为空");
+        }catch (IllegalArgumentException e ){
+            throw new ValidationException(e);
         }
-    }
 
+    }
 }

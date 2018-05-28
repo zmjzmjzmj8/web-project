@@ -1,9 +1,7 @@
-package com.zmj.common.validate;
+package com.zmj.project.common.validate;
 
-import com.zmj.common.validate.exception.ValidationException;
-import lombok.AllArgsConstructor;
+import com.zmj.project.common.validate.exception.ValidationException;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;

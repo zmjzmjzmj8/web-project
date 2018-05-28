@@ -1,6 +1,6 @@
-package com.zmj.common.exception;
+package com.zmj.project.common.exception;
 
-import com.zmj.common.validate.exception.ValidationException;
+import com.zmj.project.common.validate.exception.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -31,6 +31,7 @@ public class ExceptionTranslator {
         ModelAndView mav = new ModelAndView(DEFAULT_ERROR_VIEW);
         mav.addObject("exception", e);
         mav.addObject("url", req.getRequestURL());
+        logger.warn("exception = {} url= {} ",e,req.getRequestURL());
         return mav;
     }
 
@@ -45,6 +46,7 @@ public class ExceptionTranslator {
         ModelAndView mav = new ModelAndView(DEFAULT_ERROR_VIEW);
         mav.addObject("exception", e);
         mav.addObject("url", req.getRequestURL());
+        logger.warn("exception = {} url = {}",e,req.getRequestURL());
         return mav;
     }
 }

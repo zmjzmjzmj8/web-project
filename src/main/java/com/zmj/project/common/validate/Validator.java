@@ -1,7 +1,7 @@
-package com.zmj.common.validate;
+package com.zmj.project.common.validate;
 
 
-import com.zmj.common.validate.exception.ValidationException;
+import com.zmj.project.common.validate.exception.ValidationException;
 
 /**
  * 校验器
