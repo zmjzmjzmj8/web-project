@@ -31,6 +31,11 @@ import org.springframework.util.Assert;
 public class DemoValidator implements Validator{
     @Override
     public void validate(Object obj) throws ValidationException {
-        Assert.notNull(obj,"不能为空");
+        try {
+            Assert.notNull(obj,"不能为空");
+        }catch (IllegalArgumentException e ){
+            throw new ValidationException(e);
+        }
+
     }
 }

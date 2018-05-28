@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 public class ExceptionTranslator {
-    public static final String DEFAULT_ERROR_VIEW = "error";
+    public static final String DEFAULT_ERROR_VIEW = "error.jsp";
     private static final Logger logger  = LoggerFactory.getLogger(ExceptionTranslator.class);
 
     /**
@@ -28,7 +28,7 @@ public class ExceptionTranslator {
      */
     @ExceptionHandler(value = Exception.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
-        ModelAndView mav = new ModelAndView();
+        ModelAndView mav = new ModelAndView(DEFAULT_ERROR_VIEW);
         mav.addObject("exception", e);
         mav.addObject("url", req.getRequestURL());
         return mav;
@@ -42,7 +42,7 @@ public class ExceptionTranslator {
     @ExceptionHandler(value = ValidationException.class)
     @ResponseBody
     public ModelAndView handle(HttpServletRequest req,ValidationException e){
-        ModelAndView mav = new ModelAndView();
+        ModelAndView mav = new ModelAndView(DEFAULT_ERROR_VIEW);
         mav.addObject("exception", e);
         mav.addObject("url", req.getRequestURL());
         return mav;

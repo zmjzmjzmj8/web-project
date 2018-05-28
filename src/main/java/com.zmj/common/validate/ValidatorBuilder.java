@@ -33,7 +33,7 @@ import java.util.Optional;
  */
 @NoArgsConstructor
 public class ValidatorBuilder {
-    private static List<Validator> validators;
+    private List<Validator> validators;
 
     public ValidatorBuilder addValidator(Validator... validator){
         Optional<List<Validator>> vcp = Optional.ofNullable( validators);
@@ -43,7 +43,11 @@ public class ValidatorBuilder {
     }
 
     public ValidatorChain build(){
-        return new ValidatorChain(validators);
+        try {
+            return new ValidatorChain(validators);
+        }finally {
+            validators=null;
+        }
     }
 
 }
