@@ -9,8 +9,9 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
     <module>design</module>
+      <module>disruptor</module>
   </modules>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
   <name>web-project Maven Webapp</name>
 
 
@@ -19,7 +20,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <cxf.version>2.4.3</cxf.version>
-    <junit.version>4.11</junit.version>
+    <junit.version>4.12</junit.version>
     <lombok.version>1.16.8</lombok.version>
     <spring.version>4.3.16.RELEASE</spring.version>
     <aspectj.version>1.8.13</aspectj.version>
@@ -167,7 +168,7 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-      <version>1.5.8</version>
+      <version>1.7.25</version>
       <exclusions>
         <exclusion>
           <artifactId>log4j</artifactId>
@@ -236,6 +237,10 @@
           <artifactId>commons-beanutils</artifactId>
           <groupId>commons-beanutils</groupId>
         </exclusion>
+          <exclusion>
+              <artifactId>commons-logging</artifactId>
+              <groupId>commons-logging</groupId>
+          </exclusion>
       </exclusions>
     </dependency>
 
@@ -273,6 +278,12 @@
       <groupId>commons-beanutils</groupId>
       <artifactId>commons-beanutils</artifactId>
       <version>1.9.3</version>
+        <exclusions>
+            <exclusion>
+                <artifactId>commons-collections</artifactId>
+                <groupId>commons-collections</groupId>
+            </exclusion>
+        </exclusions>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
