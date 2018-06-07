@@ -18,8 +18,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @Version: 1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/META-INF/spring/applicationContext.xml",
-        "classpath:/META-INF/spring/spring-mvc.xml"   })
+@ContextConfiguration(locations = { "classpath:/META-INF/spring/applicationContext2.xml",
+        "classpath:/META-INF/spring/spring-mvc2.xml"   })
 public class BaseApiTest {
     @Test
     public void test(){

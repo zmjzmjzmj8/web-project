@@ -10,6 +10,7 @@
   <modules>
     <module>design</module>
       <module>disruptor</module>
+      <module>test</module>
   </modules>
   <packaging>pom</packaging>
   <name>web-project Maven Webapp</name>

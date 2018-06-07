@@ -5,10 +5,12 @@ import com.zmj.project.common.util.RestfulResultBuilder;
 import com.zmj.project.common.validate.ValidatorBuilder;
 import com.zmj.project.common.validate.ValidatorChain;
 import com.zmj.project.common.validate.exception.ValidationException;
+import com.zmj.project.service.TestService;
 import com.zmj.project.web.validator.DemoValidator;
 import com.zmj.project.web.domain.DemoForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +46,9 @@ import javax.validation.Valid;
 @RestController
 public class TestController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    TestService testService;
     /**
      * 测试校验链路建造器，自定义校验器
      * @return
@@ -79,5 +84,12 @@ public class TestController {
     @ResponseBody
     public RestfulResult testValidate3(@Valid DemoForm demoForm, BindingResult bindingResult) throws ValidationException {
         return RestfulResultBuilder.success(demoForm);
+    }
+
+    @RequestMapping("/testService")
+    @ResponseBody
+    public RestfulResult testService() throws ValidationException {
+        testService.test();
+        return RestfulResultBuilder.success();
     }
 }

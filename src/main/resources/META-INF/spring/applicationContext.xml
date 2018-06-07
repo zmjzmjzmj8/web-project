@@ -7,5 +7,6 @@
 
     <aop:aspectj-autoproxy />
     <context:annotation-config />
+    <context:component-scan base-package="com.zmj.project"/>
 
 </beans>

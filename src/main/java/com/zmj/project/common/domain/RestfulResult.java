@@ -1,7 +1,9 @@
 package com.zmj.project.common.domain;
 
 import com.zmj.project.common.enums.CodeInterface;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.sf.json.JSONObject;
 
 /**
@@ -9,6 +11,8 @@ import net.sf.json.JSONObject;
  * @author zmj
  */
 @NoArgsConstructor
+@Getter
+@Setter
 public class RestfulResult<T> extends BaseDomain{
 
     /**
@@ -31,29 +35,6 @@ public class RestfulResult<T> extends BaseDomain{
         msg=codeInterface.getInfo();
     }
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getResult() {
-        return result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
 
     @Override
     public String toString() {
